@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../install')
+require File.expand_path(File.dirname(__FILE__) + '/../cl/util/install')
 require 'test/unit'
 
 class TestInstall < Test::Unit::TestCase

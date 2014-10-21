@@ -1,7 +1,5 @@
-$LOAD_PATH << '..'
-
 require 'test/unit'
-require 'string'
+require File.expand_path('../../cl/util/string', __FILE__)
 
 class TestUtilString < Test::Unit::TestCase
   def test_here_ltrim

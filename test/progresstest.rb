@@ -1,5 +1,4 @@
-$LOAD_PATH << '..'
-require 'progress'
+require File.dirname(__FILE__) + '/../cl/util/progress'
 
 p = Progress.new(10)
 p.start

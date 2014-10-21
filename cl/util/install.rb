@@ -5,7 +5,7 @@ require "#{File.dirname(__FILE__)}/console"
 
 module CLabs
   class Install
-    include Config
+    include RbConfig
 
     attr_reader :version, :libdir, :bindir, :sitedir, :siteverdir, :archdir
 

@@ -1,5 +1,5 @@
-require File.dirname(__FILE__) + '/../file'
-require File.dirname(__FILE__) + '/../test'
+require File.dirname(__FILE__) + '/../cl/util/file'
+require File.dirname(__FILE__) + '/../cl/util/test'
 require 'test/unit'
 
 # don't inherit from clutiltest.rb.TempDirTest, it uses things that are tested here

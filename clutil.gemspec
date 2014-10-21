@@ -1,28 +1,22 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "clutil"
-  s.version = "2011.138.0"
+  s.name = 'clutil'
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6") if s.respond_to? :required_rubygems_version=
-  s.authors = ["chrismo"]
-  s.date = "2011-05-19"
-  s.description = "a mish-mash of spare utility libs for Ruby."
-  s.email = ["chrismo@clabs.org"]
-  s.homepage = "http://clabs.org/ruby.htm"
+  # Year, day of the year, release.
+  # --
+  # This was perhaps a creative way to do this, pre-SemVer,
+  # and maybe I'll just go SemVer one day ... but not this day.
+  s.version = Time.now.strftime('%Y.%j.0')
+
+  s.authors = ['chrismo']
+  s.description = 'a mish-mash of spare utility libs for Ruby.'
+  s.email = ['chrismo@clabs.org']
+  s.homepage = 'http://clabs.org/ruby.htm'
   s.licenses = ['MIT']
-  s.require_paths = [""]
-  s.required_ruby_version = Gem::Requirement.new(">= 1.8.7")
-  s.rubyforge_project = "scrapware"
-  s.rubygems_version = "1.8.23"
-  s.summary = "cLabs Ruby Utilities"
+  s.summary = 'cLabs Ruby Utilities'
 
-  if s.respond_to? :specification_version then
-    s.specification_version = 3
+  s.files = Dir.glob(File.expand_path('../cl/**.rb', __FILE__))
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-    else
-    end
-  else
-  end
+  s.add_runtime_dependency 'rake'
 end
