@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   # --
   # This was perhaps a creative way to do this, pre-SemVer,
   # and maybe I'll just go SemVer one day ... but not this day.
-  s.version = Time.now.strftime('%Y.%j.0')
+  s.version = Time.now.strftime('%Y.%j.1')
 
   s.authors = ['chrismo']
   s.description = 'a mish-mash of spare utility libs for Ruby.'
