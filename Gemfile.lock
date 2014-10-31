@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    clutil (2014.304.1)
+    clutil (2014.304.2)
       rake
 
 GEM

@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   # --
   # This was perhaps a creative way to do this, pre-SemVer,
   # and maybe I'll just go SemVer one day ... but not this day.
-  s.version = Time.now.strftime('%Y.%j.1')
+  s.version = Time.now.strftime('%Y.%j.2')
 
   s.authors = ['chrismo']
   s.description = 'a mish-mash of spare utility libs for Ruby.'
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.summary = 'cLabs Ruby Utilities'
 
   s.files = Dir.glob('cl/**/*.rb')
+  s.require_paths = ['.']
 
   s.add_runtime_dependency 'rake'
 end
