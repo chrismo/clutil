@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.licenses = ['MIT']
   s.summary = 'cLabs Ruby Utilities'
 
-  s.files = Dir.glob(File.expand_path('../cl/**.rb', __FILE__))
+  s.files = Dir.glob('cl/**/*.rb')
 
   s.add_runtime_dependency 'rake'
 end
