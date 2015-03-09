@@ -206,4 +206,22 @@ class TestBackup < TempDirTest
 
 end
 
-
+class TestHSize < Test::Unit::TestCase
+  def test_to_h_size
+    assert_equal '0B', File.to_h_size(0)
+    assert_equal '1B', File.to_h_size(1)
+    assert_equal '10B', File.to_h_size(10)
+    assert_equal '100B', File.to_h_size(100)
+    assert_equal '1023B', File.to_h_size(1023)
+    assert_equal '1KB', File.to_h_size(1024)
+    assert_equal '1000KB', File.to_h_size(1_023_999)
+    assert_equal '1001KB', File.to_h_size(1_024_999)
+    assert_equal '1MB', File.to_h_size(1_127_000)
+    assert_equal '10MB', File.to_h_size(10_127_000)
+    assert_equal '18MB', File.to_h_size(19_127_000)
+    assert_equal '190MB', File.to_h_size(199_127_000)
+    assert_equal '1GB', File.to_h_size(1_199_127_000)
+    assert_equal '1TB', File.to_h_size(1_100_199_127_000)
+    assert_equal '494TB', File.to_h_size(543_100_199_127_000)
+  end
+end

@@ -105,12 +105,15 @@ class << File
 
   # human readable size
   def h_size(filename)
-    size = File.size(filename)
+    to_h_size(File.size(filename))
+  end
+
+  def to_h_size(size)
     return '0B' if size == 0
     units = %w{B KB MB GB TB}
     e = (Math.log(size) / Math.log(1024)).floor
     s = "%.0f" % (size.to_f / 1024**e)
-    s.sub(/\.?0*$/, units[e])
+    "#{s}#{units[e]}"
   end
 end
 
