@@ -1,7 +1,7 @@
 # cLabs Ruby Utilities
 
-Home Page :: http://clabs.org/ruby.htm
-Source    :: https://github.com/chrismo/clutil
+- Home Page :: http://clabs.org/ruby.htm
+- Source    :: https://github.com/chrismo/clutil
 
 ## Overview
 
