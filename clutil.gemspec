@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.authors = ['chrismo']
   s.description = 'a mish-mash of spare utility libs for Ruby.'
   s.email = ['chrismo@clabs.org']
-  s.homepage = 'http://clabs.org/ruby.htm'
+  s.homepage = 'https://github.com/chrismo/clutil'
   s.licenses = ['MIT']
   s.summary = 'cLabs Ruby Utilities'
 
