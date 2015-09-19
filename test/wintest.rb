@@ -19,7 +19,7 @@ if Gem::Platform.local.os =~ /mswin/
       begin
         File.delete(fileName)
         fail('should have raised exception')
-      rescue ClUtilWinErr => e
+      rescue ClUtilWinErr
         # nada, expected exception
       end
       assert(Dir[fileName] != [])

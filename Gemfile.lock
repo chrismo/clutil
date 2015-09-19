@@ -1,16 +1,19 @@
 PATH
   remote: .
   specs:
-    clutil (2015.068.0)
+    clutil (2015.262.0)
       rake
 
 GEM
   remote: https://rubygems.org/
   specs:
-    rake (10.3.2)
+    rake (10.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   clutil!
+
+BUNDLED WITH
+   1.10.6

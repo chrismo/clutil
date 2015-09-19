@@ -31,7 +31,7 @@ class TempDirTest < Test::Unit::TestCase
   end
 
   def make_sample_text_file(dirname='', size=0)
-    crlf_length = 2
+    crlf_length = 1
 
     if size == 0
       content = 'this is a sample file'

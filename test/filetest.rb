@@ -21,8 +21,8 @@ class TestUtilFile < Test::Unit::TestCase
   end
 
   def teardown
-    @files.each { | filename | File.delete_all(filename) if File.exists?(filename) }
-    @dirs.reverse_each { | dirname | Dir.delete(dirname) if File.exists?(dirname) } if @dirs
+    @files.each { | filename | File.delete_all(filename) if File.exist?(filename) }
+    @dirs.reverse_each { | dirname | Dir.delete(dirname) if File.exist?(dirname) } if @dirs
   end
 
   def do_test_del_tree(attr)
@@ -42,8 +42,8 @@ class TestUtilFile < Test::Unit::TestCase
               '/tmp/utilfiletest/subB/subB1/subB1a/blah.txt']
     @files.each { | filename | create_test_file(filename, 'test content', Time.now, attr) }
     ClUtilFile.delTree(@dirs[0])
-    @files.each { | file_name | assert(!File.exists?(file_name)) }
-    @dirs.each { | dir_name | assert(!File.exists?(dir_name)) }
+    @files.each { | file_name | assert(!File.exist?(file_name)) }
+    @dirs.each { | dir_name | assert(!File.exist?(dir_name)) }
   end
 
   def test_del_tree
@@ -70,12 +70,12 @@ class TestUtilFile < Test::Unit::TestCase
     @files_to_stay.each { | filename | create_test_file(filename, 'test content') }
     @files_to_delete.each { | filename | create_test_file(filename, 'test content') }
     ClUtilFile.delTree(@dirs[0], '*.txt')
-    @files_to_stay.each { | file_name | assert(File.exists?(file_name)) }
-    @files_to_delete.each { | file_name | assert(!File.exists?(file_name)) }
+    @files_to_stay.each { | file_name | assert(File.exist?(file_name)) }
+    @files_to_delete.each { | file_name | assert(!File.exist?(file_name)) }
     ClUtilFile.delTree(@dirs[0])
-    @files_to_stay.each { | file_name | assert(!File.exists?(file_name)) }
-    @files_to_delete.each { | file_name | assert(!File.exists?(file_name)) }
-    @dirs.each { | dir_name | assert(!File.exists?(dir_name)) }
+    @files_to_stay.each { | file_name | assert(!File.exist?(file_name)) }
+    @files_to_delete.each { | file_name | assert(!File.exist?(file_name)) }
+    @dirs.each { | dir_name | assert(!File.exist?(dir_name)) }
   end
 
   def test_del_tree_aging
@@ -102,12 +102,12 @@ class TestUtilFile < Test::Unit::TestCase
       (File.mtime(file_name) < (Time.now - seven_days))
     }
 
-    @files_to_stay.each { | file_name | assert(File.exists?(file_name)) }
-    @files_to_delete.each { | file_name | assert(!File.exists?(file_name)) }
+    @files_to_stay.each { | file_name | assert(File.exist?(file_name)) }
+    @files_to_delete.each { | file_name | assert(!File.exist?(file_name)) }
     ClUtilFile.delTree(@dirs[0])
-    @files_to_stay.each { | file_name | assert(!File.exists?(file_name)) }
-    @files_to_delete.each { | file_name | assert(!File.exists?(file_name)) }
-    @dirs.each { | dir_name | assert(!File.exists?(dir_name)) }
+    @files_to_stay.each { | file_name | assert(!File.exist?(file_name)) }
+    @files_to_delete.each { | file_name | assert(!File.exist?(file_name)) }
+    @dirs.each { | dir_name | assert(!File.exist?(dir_name)) }
   end
 
   def test_dir_files
@@ -152,7 +152,7 @@ class TestBackup < TempDirTest
     src = make_sample_text_file('a')
     dst = File.join(@b_dir, File.basename(src))
     assert_equal(true, File.backup(src, dst))
-    assert_equal(true, File.exists?(dst))
+    assert_equal(true, File.exist?(dst))
   end
 
   def test_not_backed_up_because_exists
