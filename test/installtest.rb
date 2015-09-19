@@ -1,7 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + '/../cl/util/install')
-require 'test/unit'
+require_relative '../cl/util/install'
+require 'minitest/autorun'
 
-class TestInstall < Test::Unit::TestCase
+class TestInstall < MiniTest::Test
   def test_set_prefix
     install = CLabs::Install.new
     conf = install.get_conf({'prefix' => '/tmp/ruby'})

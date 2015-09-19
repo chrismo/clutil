@@ -1,10 +1,10 @@
 if Gem::Platform.local.os =~ /mswin/
 
   $LOAD_PATH << '..'
-  require File.dirname(__FILE__) + '/../cl/util/win'
-  require 'test/unit'
+  require_relative '../cl/util/win'
+  require 'minitest/autorun'
 
-  class TestUtilWin < Test::Unit::TestCase
+  class TestUtilWin < MiniTest::Test
     def testDeleteFile
       fileName = "clutilwintest.test.safe.to.delete.txt"
       f = File.new(fileName, File::CREAT)
@@ -67,7 +67,7 @@ if Gem::Platform.local.os =~ /mswin/
     end
   end
 
-  class TestSystemReturnExitCode < Test::Unit::TestCase
+  class TestSystemReturnExitCode < MiniTest::Test
     def test_system_return_exit_code
       tmpfn = File.join(File.dirname(__FILE__), '_test.child.rb')
       File.delete tmpfn if File.exists?(tmpfn)

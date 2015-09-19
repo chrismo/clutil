@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/file'
 require 'fileutils'
 require 'tmpdir'
-require 'test/unit'
+require 'minitest'
 
-class TempDirTest < Test::Unit::TestCase
+class TempDirTest < MiniTest::Test
   def set_temp_dir
     @temp_dir = Dir.mktmpdir
   end

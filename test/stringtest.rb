@@ -1,7 +1,7 @@
-require 'test/unit'
-require File.expand_path('../../cl/util/string', __FILE__)
+require_relative '../cl/util/string'
+require 'minitest/autorun'
 
-class TestUtilString < Test::Unit::TestCase
+class TestUtilString < MiniTest::Test
   def test_here_ltrim
     test = <<-TEST
       This is a test of the here_ltrim function.

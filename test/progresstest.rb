@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../cl/util/progress'
+require_relative '../cl/util/progress'
 
 p = Progress.new(10)
 p.start

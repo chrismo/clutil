@@ -1,9 +1,9 @@
-require File.dirname(__FILE__) + '/../cl/util/file'
-require File.dirname(__FILE__) + '/../cl/util/test'
-require 'test/unit'
+require_relative '../cl/util/file'
+require_relative '../cl/util/test'
+require 'minitest/autorun'
 
 # don't inherit from clutiltest.rb.TempDirTest, it uses things that are tested here
-class TestUtilFile < Test::Unit::TestCase
+class TestUtilFile < MiniTest::Test
   READ_WRITE = 0644
   READ_ONLY = 0444
 
@@ -206,7 +206,7 @@ class TestBackup < TempDirTest
 
 end
 
-class TestHSize < Test::Unit::TestCase
+class TestHSize < MiniTest::Test
   def test_to_h_size
     assert_equal '0B', File.to_h_size(0)
     assert_equal '1B', File.to_h_size(1)

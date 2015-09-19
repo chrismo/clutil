@@ -20,4 +20,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['.']
 
   s.add_runtime_dependency 'rake'
+
+  s.add_development_dependency 'minitest'
 end

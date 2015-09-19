@@ -1,6 +1,5 @@
 require File.dirname(__FILE__) + '/../cl/util/test'
 require File.dirname(__FILE__) + '/../cl/util/dirsize'
-require 'test/unit'
 
 TestData = Struct.new("TestData",
   :clusterSize,
