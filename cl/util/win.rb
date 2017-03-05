@@ -2,26 +2,7 @@ require 'Win32API'
 require 'win32ole'
 require File.dirname(__FILE__) + '/file'
 
-# MENON Jean-Francois [Jean-Francois.MENON@meteo.fr]
-# http://ruby-talk.com/41583
-# But I see two potential problems that make not consistent with the
-# original ruby command:
-# 1) it takes only one argument
-
-# code by Hee-Sob Park - posted here:
-# http://ruby-talk.com/10006
-def system(command)
-  # 2) it always set "$?" variable to false - should be working now...
-
-  # not allowed to set $?
-  # $? = Win32API.new("crtdll", "system", ['P'], 'L').Call(command)
-  # $? == 0
-
-  # http://msdn.microsoft.com/library/en-us/vccore98/html/_crt_system.2c_._wsystem.asp
-  Win32API.new("crtdll", "system", ['P'], 'L').Call(command)
-end
-
-# the system cmd in MSVC built ruby does not set $?, so no access to 
+# the system cmd in MSVC built ruby does not set $?, so no access to
 # the exit code can be had. The following works, but is obtuse enough
 # for me to encapsulate in this method.
 # Bit slightly modified from - nobu http://ruby-talk.com/76086
@@ -32,36 +13,6 @@ def system_return_exitcode(cmd)
      exitcode = Process.waitpid2(f.pid)[1] >> 8
   }
   return exitcode
-end
-
-# MENON Jean-Francois [Jean-Francois.MENON@meteo.fr]
-# http://ruby-talk.com/41583
-# But I see two potential problems that make not consistent with the
-# original ruby command:
-# 1) it always set "$?" variable to false
-
-# code by Hee-Sob Park - posted here:
-# http://ruby-talk.com/10006
-def `(command)
-  # http://msdn.microsoft.com/library/en-us/vccore98/HTML/_crt__popen.2c_._wpopen.asp
-  popen = Win32API.new("crtdll", "_popen", ['P','P'], 'L')
-  pclose = Win32API.new("crtdll", "_pclose", ['L'], 'L')
-  fread = Win32API.new("crtdll", "fread", ['P','L','L','L'], 'L')
-  feof = Win32API.new("crtdll", "feof", ['L'], 'L')
-  saved_stdout = $stdout.clone
-  psBuffer = " " * 128
-  rBuffer = ""
-  f = popen.Call(command,"r")
-  while feof.Call( f )==0
-      l = fread.Call( psBuffer,1,128,f )
-      # fix emailed direct to me from Park from 10006 code
-      # was:
-      #   rBuffer += psBuffer[0..l]
-      rBuffer += psBuffer[0...l]
-  end
-  pclose.Call f
-  $stdout.reopen(saved_stdout)
-  rBuffer
 end
 
 P_WAIT        = 0
